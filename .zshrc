@@ -4,16 +4,19 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+#source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #-----------------------------------------------------------------
+
 # antigen
 source $(brew --prefix)/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle fzf
 antigen bundle z
-antigen bundle MichaelAquilina/zsh-auto-notify
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen theme romkatv/powerlevel10k
+#antigen theme romkatv/powerlevel10k
 antigen apply
 
 # iterm2
@@ -49,17 +52,8 @@ export EDITOR="vim"
 export GIT_EDITOR="vim"
 export VISUAL="vim"
 
-# tmux
-tmux source-file ~/.tmux.conf
-
 # dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 
 
-#-----------------------------------------------------------------
-# p10k
-source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
