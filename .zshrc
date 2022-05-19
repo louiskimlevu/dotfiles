@@ -1,5 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
+#fzf Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.  # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -28,14 +27,14 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 # exa
 alias ls='exa -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
 alias ll='exa -lahF --group-directories-first --color=auto --git --icons'
-alias tree='exa --tree -lahF --icons --color=auto -L'
+alias tree='exa --tree --color=auto --git-ignore -L'
 
 # bat
 export BAT_THEME="gruvbox-dark"
-alias cat='bat --paging=never'
-# clear
-alias c="clear"
+alias cat='bat --style=plain --paging=never' # clear
 
+#clear
+alias c='clear'
 # fzf
 export FZF_BASE=/opt/homebrew/opt/fzf
 export FZF_DEFAULT_OPTS="--height 50% \
@@ -46,14 +45,16 @@ export FZF_DEFAULT_OPTS="--height 50% \
 
 # git
 alias g='git'
+alias ga='git add --verbose'
+alias gs='git status --untracked-files --verbose'
 
 # default editor
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export VISUAL="vim"
 
+
 # dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
-
 
