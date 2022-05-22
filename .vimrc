@@ -2,23 +2,28 @@ set tabstop=2 softtabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent
 set exrc
 "silent set guicursor
 set number relativenumber
-set timeoutlen=250
+set timeoutlen=200
 set hidden
 set noerrorbells
 set nowrap
 set noswapfile nobackup undodir=~/.vim/undodir undofile
 set incsearch
-" keep cursor in the middle, other behaviour set scrolloff=8
-set scrolloff=999
+" keep cursor in the middle, other behaviour
+set scrolloff=8
+"set scrolloff=999
 set noshowmode
 set completeopt=menuone,noinsert,noselect
 set colorcolumn=80 textwidth=80
 set signcolumn=yes
 set updatetime=100
-set smartcase
+set smartcase ignorecase
+" to show how many occurences of a search at bottom right
+set shortmess-=S
+set termguicolors
 
 syntax enable
 syntax on
+hi Comment gui=italic cterm=italic
 
 " Install vim-plug if not found
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -27,7 +32,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 call plug#begin()
-Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -36,7 +41,7 @@ Plug 'airblade/vim-rooter'
 Plug 'mhinz/vim-startify'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'psliwka/vim-smoothie'
-Plug 'https://github.com/airblade/vim-gitgutter.git'
+"Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 "Plug 'justinmk/vim-sneak'
@@ -53,32 +58,63 @@ set background=dark
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
+" PlugInstall
+nmap <Leader>pi :PlugInstall<CR>
+
 " airline
 let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+" unicode symbols
+"let g:airline_sympFols.colnr = ' ℅'
+let g:airline_symbols.colnr = ' '
+"let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = ' '
+"let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.maxlinenr = ''
+
+" filepath copy
+"cp relative path  (src/foo.txt)
+nnoremap <leader>crp :let @*=expand("%")<CR>
+"cp absolute path  (/something/src/foo.txt)
+nnoremap <leader>cap :let @*=expand("%:p")<CR>
+"cp filename       (foo.txt)
+nnoremap <leader>cp :let @*=expand("%:t")<CR>
+"cp directory name (/something/src)
+nnoremap <leader>crd :let @*=expand("%:p:h")<CR>
+
+"gitgutter
+"show diffs::let @+ = expand("%:p")
 
 " better whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
-"gitgutter
-call gitgutter#enable()
+" gitgutter
+"call gitgutter#enable()
 "hi SignColumn term=standout ctermfg=4 ctermbg=248 guifg=DarkBlue guibg=Grey
 
 " easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1 " Turn on case-insensitive feature
 "nmap <Leader>s <Plug>(easymotion-s)
-nmap <Leader>ss <Plug>(easymotion-s2)
 nmap <Leader>s <Plug>(easymotion-bd-w)
+nmap <Leader>S <Plug>(easymotion-bd-W)
+"nmap <Leader>j <Plug>(easymotion-bd-jk)
+"nmap <Leader>sss <Plug>(easymotion-s2)
+"nmap <Leader>sl <Plug>(easymotion-lineanywhere)
 
 " fzf
+nmap <Leader>f :History<CR>
+nmap <Leader>fs :BLines<CR>'
 nmap <Leader>fr :Rg<CR>
 nmap <Leader>fff :FZF<CR>
 nmap <Leader>ff :Buffer<CR>
-nmap <Leader>f :History<CR>
 nmap <Leader>fgs :GitFiles?<CR>
 nmap <Leader>fg :GitFiles<CR>
+nmap <Leader>fc :Commands<CR>
 
 " This is the default extra key bindings
 " https: // github.com/junegunn/fzf/blob/master/doc/fzf.txt
@@ -107,10 +143,10 @@ let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.6}}
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 " command! LS call fzf  # run(fzf#wrap({'source': 'ls'}))
-"
+
 " jump lines while cursor stay in the middle
-nmap <Leader>k kzz
-nmap <Leader>j jzz
+"nmap <Leader>k kzz
+"nmap <Leader>j jzz
 
 " move tabs
 map H gT
@@ -121,6 +157,12 @@ imap jj <ESC>
 
 " write
 nmap <Leader>w :w<CR>
+
+" write
+nmap <Leader>wq :wq!<CR>
+
+" quit
+nmap <Leader>q :q!<CR>
 
 " close
 nmap <Leader>c :close<CR>
@@ -169,3 +211,5 @@ let g:startify_lists = [
         \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
+
+
