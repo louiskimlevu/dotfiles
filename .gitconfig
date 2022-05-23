@@ -28,3 +28,6 @@
 	co = checkout
 	c = commit
 	unstage = reset HEAD --
+[user]
+	name = louiskim
+	email = louiskim.levu@gmail.com

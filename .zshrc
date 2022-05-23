@@ -49,9 +49,13 @@ export FZF_DEFAULT_OPTS="--height 50% \
 
 # git
 alias g='git'
-alias ga='gti add -verbose'
+alias ga='git add --verbose'
 alias gs='git status --untracked-files --short --branch'
 alias gl='git log --oneline'
+alias g2l="git log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'"
+alias g3l="git log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset' --name-status"
+alias g4l="git log --stat --oneline"
+alias g5l="git log --oneline -p"
 alias gsh='git show'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -92,7 +96,6 @@ git config --global color.diff.whitespace "red reverse"
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export VISUAL="vim"
-
 
 # dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
