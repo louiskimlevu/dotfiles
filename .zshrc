@@ -59,6 +59,8 @@ alias gdh='git diff HEAD'
 alias gls='git ls-files'
 
 # git config
+git config --global user.name "louiskim"
+git config --global user.email louiskim.levu@gmail.com
 ## aliases
 git config --global alias.a 'add --verbose'
 git config --global alias.s 'status --untracked-files --short --branch'
