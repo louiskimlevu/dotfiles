@@ -141,7 +141,7 @@ let g:fzf_colors = {
   \ 'header':     ['fg', 'Comment'] }
 
 " Popup window(center of the screen)
-let g:fzf_layout = {'window': {'width': 0.9, 'height': 0.6}}
+let g:fzf_layout = {'window': {'width': 0.95, 'height': 0.6}}
 " Enable per-command history
 " - History files will be stored in the specified directory
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
@@ -188,8 +188,8 @@ nmap <Leader>g :Git<CR>
 
 " terminal
 let g:floaterm_keymap_toggle = '<C-]>'
-let g:floaterm_width = 0.9
-let g:floaterm_height = 0.9
+let g:floaterm_width = 0.95
+let g:floaterm_height = 0.95
 
 " returns all modified files of the current git repo
 " `2>/dev/null` makes the command fail quietly, so that when we are not
