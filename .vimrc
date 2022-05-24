@@ -170,8 +170,8 @@ nmap <Leader>c :bd<CR>
 nmap <Leader>cc :close<CR>
 
 " buffers
-nmap <Leader>b :bnext<CR>
-nmap <Leader>bb :bNext<CR>
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 
 " insert lines below/above
 nmap oo o <Esc>
