@@ -155,15 +155,11 @@ map H gT
 map L gt
 
 " escape insert mode
-imap jj <ESC>
+"imap jj <ESC>
 
-" write
+" write/quit
 nmap <Leader>w :w<CR>
-
-" write
 nmap <Leader>wq :wq!<CR>
-
-" quit
 nmap <Leader>q :q!<CR>
 
 " close
@@ -188,7 +184,7 @@ map <Right> <Nop>
 nmap <Leader>g :Git<CR>
 
 " terminal
-let g:floaterm_keymap_toggle = '<C-m>'
+let g:floaterm_keymap_toggle = '<C-]>'
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
 
