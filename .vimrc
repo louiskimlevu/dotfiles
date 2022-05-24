@@ -124,21 +124,20 @@ nmap <Leader>fc :Commands<CR>
 " This is the default extra key bindings
 " https: // github.com/junegunn/fzf/blob/master/doc/fzf.txt
 " Default fzf layout
-let g:fzf_colors = {
-  \ 'fg':         ['fg', 'Normal'],
-  \ 'bg':         ['bg', 'Normal'],
-  \ 'preview-bg': ['bg', 'NormalFloat'],
-  \ 'hl':         ['fg', 'Comment'],
-  \ 'fg+':        ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':        ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':        ['fg', 'Statement'],
-  \ 'info':       ['fg', 'PreProc'],
-  \ 'border':     ['fg', 'CursorColumn'],
-  \ 'prompt':     ['fg', 'Conditional'],
-  \ 'pointer':    ['fg', 'Exception'],
-  \ 'marker':     ['fg', 'Keyword'],
-  \ 'spinner':    ['fg', 'Label'],
-  \ 'header':     ['fg', 'Comment'] }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " Popup window(center of the screen)
 let g:fzf_layout = {'window': {'width': 0.95, 'height': 0.6}}
