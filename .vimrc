@@ -188,7 +188,7 @@ map <Right> <Nop>
 nmap <Leader>g :Git<CR>
 
 " terminal
-let g:floaterm_keymap_toggle = '<C-`>'
+let g:floaterm_keymap_toggle = '<C-/>'
 let g:floaterm_width = 0.9
 let g:floaterm_height = 0.9
 
