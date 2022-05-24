@@ -45,6 +45,7 @@ Plug 'psliwka/vim-smoothie'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 "Plug 'justinmk/vim-sneak'
+Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
@@ -211,6 +212,10 @@ let g:startify_lists = [
         \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
+        
+" floatterm
+let g:floaterm_keymap_new = '<Leader>``'
+let g:floaterm_keymap_new = '<Leader>`'
 
 "fuzzy cd
 command! -bang -bar -nargs=? -complete=dir Cd
