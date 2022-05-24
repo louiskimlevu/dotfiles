@@ -48,6 +48,7 @@ Plug 'tpope/vim-surround'
 Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'hashicorp/sentinel.vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
