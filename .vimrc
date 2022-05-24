@@ -2,7 +2,7 @@ set tabstop=2 softtabstop=2 softtabstop=2 shiftwidth=2 expandtab smartindent
 set exrc
 "silent set guicursor
 set number relativenumber
-set timeoutlen=200
+set timeoutlen=250
 set hidden
 set noerrorbells
 set nowrap
@@ -20,9 +20,9 @@ set smartcase ignorecase
 " to show how many occurences of a search at bottom right
 set shortmess-=S
 set termguicolors
+set clipboard=unnamed
 " opens the new window to the right of the current window when using :vsplit
 set spr
-
 
 syntax enable
 syntax on
@@ -52,6 +52,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
 Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'hashicorp/sentinel.vim'
+Plug 'liuchengxu/vim-which-key'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
@@ -64,7 +65,7 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 " PlugInstall
-nmap <Leader>pi :PlugInstall<CR>
+"nmap <Leader>pi :PlugInstall<CR>
 
 " airline
 let g:airline_theme='gruvbox'
@@ -80,15 +81,13 @@ let g:airline_symbols.linenr = ' '
 "let g:airline_symbols.maxlinenr = '㏑'
 let g:airline_symbols.maxlinenr = ''
 
-" filepath copy
+" Copy current path inside "*
 "cp relative path  (src/foo.txt)
-nnoremap <leader>crp :let @*=expand("%")<CR>
+nnoremap <leader>p :let @*=expand("%")<CR>
 "cp absolute path  (/something/src/foo.txt)
-nnoremap <leader>cap :let @*=expand("%:p")<CR>
-"cp filename       (foo.txt)
-nnoremap <leader>cp :let @*=expand("%:t")<CR>
+nnoremap <leader>pp :let @*=expand("%:p")<CR>
 "cp directory name (/something/src)
-nnoremap <leader>crd :let @*=expand("%:p:h")<CR>
+nnoremap <leader>P :let @*=expand("%:p:h")<CR>
 
 "gitgutter
 "show diffs::let @+ = expand("%:p")
@@ -112,15 +111,13 @@ nmap <Leader>S <Plug>(easymotion-bd-W)
 "nmap <Leader>sl <Plug>(easymotion-lineanywhere)
 
 " fzf
-nmap <Leader>f :FZF<CR>
-nmap <Leader>fh :History<CR>
-nmap <Leader>fb :Buffer<CR>
-nmap <Leader>fl :BLines<CR>'
-nmap <Leader>fr :Rg<CR>
-"nmap <Leader>fgs :GitFiles?<CR>
-nmap <Leader>fg :GitFiles<CR>
-nmap <Leader>fc :Commands<CR>
-nmap <Leader>fm :Maps<CR>
+nmap <Leader>FF :FZF<CR>'
+nmap <Leader>f :History<CR>'
+nmap <Leader>ff :Buffer<CR>'
+nmap <Leader>F :BLines<CR>'
+nmap <Leader>r :Rg<CR>'
+nmap <Leader>R :GitFiles?<CR>'
+nmap <Leader>RR :GitFiles<CR>'
 
 " This is the default extra key bindings
 " https: // github.com/junegunn/fzf/blob/master/doc/fzf.txt
@@ -153,10 +150,6 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 "nmap <Leader>k kzz
 "nmap <Leader>j jzz
 
-" move tabs
-map H gT
-map L gt
-
 " escape insert mode
 "imap jj <ESC>
 
@@ -165,17 +158,21 @@ nmap <Leader>w :w<CR>
 nmap <Leader>wq :wq!<CR>
 nmap <Leader>q :q!<CR>
 
-" close
+" close buffer,tab
 nmap <Leader>c :bd<CR>
-nmap <Leader>cc :close<CR>
+nmap <Leader>C :close<CR>
 
-" buffers
+" move buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
 " insert lines below/above
 nmap oo o <Esc>
 nmap OO O <Esc>
+
+" copy to systemclipboard
+"map Y "*y<CR>
+
 
 " disable arrow keys
 map <Up> <Nop>
@@ -187,7 +184,7 @@ map <Right> <Nop>
 nmap <Leader>g :Git<CR>
 
 " terminal
-let g:floaterm_keymap_toggle = '<C-]>'
+let g:floaterm_keymap_toggle = '<C-S>'
 let g:floaterm_width = 0.95
 let g:floaterm_height = 0.95
 
@@ -218,11 +215,13 @@ let g:startify_lists = [
         \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
-        
 
 "fuzzy cd
 command! -bang -bar -nargs=? -complete=dir Cd
     \ call fzf#run(fzf#wrap(
     \ {'source': 'find '.( empty("<args>") ? ( <bang>0 ? "~" : "." ) : "<args>" ) .' -type d',
     \ 'sink': 'cd'}))
-nnoremap <leader>cd :Cd<CR>
+noremap <leader>cd :Cd<CR>
+
+"which-key
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
