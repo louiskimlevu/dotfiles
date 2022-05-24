@@ -215,7 +215,7 @@ let g:startify_lists = [
         
 " floatterm
 let g:floaterm_keymap_new = '<Leader>``'
-let g:floaterm_keymap_toggle = '<C-`>'
+let g:floaterm_keymap_toggle = '<C-z>'
 
 "fuzzy cd
 command! -bang -bar -nargs=? -complete=dir Cd
