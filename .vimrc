@@ -198,7 +198,7 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-"startify
+" startify
 let g:startify_files_number = 5
 let g:startify_custom_header = 'startify#center(startify#fortune#cowsay())'
 let g:startify_bookmarks = [{'v': '~/.vimrc'},{'z': '~/.zshrc'},{'t': '~/.tmux.conf'}]
@@ -212,4 +212,9 @@ let g:startify_lists = [
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
 
-
+"fuzzy cd
+command! -bang -bar -nargs=? -complete=dir Cd
+    \ call fzf#run(fzf#wrap(
+    \ {'source': 'find '.( empty("<args>") ? ( <bang>0 ? "~" : "." ) : "<args>" ) .' -type d',
+    \ 'sink': 'cd'}))
+nnoremap <leader>cd :Cd<CR>
