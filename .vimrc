@@ -20,6 +20,9 @@ set smartcase ignorecase
 " to show how many occurences of a search at bottom right
 set shortmess-=S
 set termguicolors
+" opens the new window to the right of the current window when using :vsplit
+set spr
+
 
 syntax enable
 syntax on
