@@ -167,7 +167,7 @@ nmap <Leader>wq :wq!<CR>
 nmap <Leader>q :q!<CR>
 
 " close
-nmap <Leader>c :Bclose<CR>
+nmap <Leader>c :bd<CR>
 nmap <Leader>cc :close<CR>
 
 " buffers
