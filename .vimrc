@@ -167,7 +167,12 @@ nmap <Leader>wq :wq!<CR>
 nmap <Leader>q :q!<CR>
 
 " close
-nmap <Leader>c :close<CR>
+nmap <Leader>c :Bclose<CR>
+nmap <Leader>cc :close<CR>
+
+" buffers
+nmap <Leader>b :bnext
+nmap <Leader>bb :bNext
 
 " insert lines below/above
 nmap oo o <Esc>
