@@ -188,8 +188,9 @@ map <Right> <Nop>
 nmap <Leader>g :Git<CR>
 
 " terminal
-nmap <Leader>` :terminal<CR>
-
+let g:floaterm_keymap_toggle = '<C-`>'
+let g:floaterm_width = 0.9
+let g:floaterm_height = 0.9
 
 " returns all modified files of the current git repo
 " `2>/dev/null` makes the command fail quietly, so that when we are not
@@ -219,10 +220,6 @@ let g:startify_lists = [
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
         
-" floatterm
-let g:floaterm_keymap_toggle = '<C-`>'
-let g:floaterm_width = 0.9
-let g:floaterm_height = 0.9
 
 "fuzzy cd
 command! -bang -bar -nargs=? -complete=dir Cd
