@@ -45,6 +45,7 @@ Plug 'mhinz/vim-startify'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'psliwka/vim-smoothie'
 "Plug 'https://github.com/airblade/vim-gitgutter.git'
+Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 "Plug 'justinmk/vim-sneak'
@@ -89,16 +90,21 @@ nnoremap <leader>pp :let @*=expand("%:p")<CR>
 "cp directory name (/something/src)
 nnoremap <leader>P :let @*=expand("%:p:h")<CR>
 
-"gitgutter
-"show diffs::let @+ = expand("%:p")
+"gitgutterhighlight! link SignColumn LineNr
+let g:gitgutter_enabled = 1
+autocmd ColorScheme * highlight! link SignColumn LineNr
+highlight! link SignColumn LineNr
+"let g:gitgutter_set_sign_backgrounds = 1
+let g:gitgutter_override_sign_column_highlight = 1
+nmap <Leader>gg <Plug>(GitGutterPreviewHunk)
+nmap <Leader>G <Plug>(GitGutterStageHunk)
+nmap <Leader>GG <Plug>(GitGutterUndoHunk)
+let g:gitgutter_close_preview_on_escape = 1
 
 " better whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
-" gitgutter
-"call gitgutter#enable()
-"hi SignColumn term=standout ctermfg=4 ctermbg=248 guifg=DarkBlue guibg=Grey
 
 " easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -188,6 +194,7 @@ let g:floaterm_keymap_toggle = '<C-S>'
 let g:floaterm_width = 0.95
 let g:floaterm_height = 0.95
 
+" startify
 " returns all modified files of the current git repo
 " `2>/dev/null` makes the command fail quietly, so that when we are not
 " in a git repo, the list will be empty
@@ -202,7 +209,6 @@ function! s:gitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-" startify
 let g:startify_files_number = 5
 let g:startify_custom_header = 'startify#center(startify#fortune#cowsay())'
 let g:startify_bookmarks = [{'v': '~/.vimrc'},{'z': '~/.zshrc'},{'t': '~/.tmux.conf'}]
