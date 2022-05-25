@@ -13,7 +13,7 @@ set scrolloff=8
 "set scrolloff=999
 set noshowmode
 set completeopt=menuone,noinsert,noselect
-set colorcolumn=80 textwidth=80
+"set colorcolumn=80 textwidth=80
 set signcolumn=yes
 set updatetime=100
 set smartcase ignorecase
@@ -24,6 +24,7 @@ set clipboard=unnamed
 " opens the new window to the right of the current window when using :vsplit
 set spr
 set autoread
+set cursorline
 
 syntax enable
 syntax on
@@ -52,7 +53,7 @@ Plug 'tpope/vim-commentary'
 "Plug 'justinmk/vim-sneak'
 Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
-" Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'hashivim/vim-terraform'
 Plug 'hashicorp/sentinel.vim'
 Plug 'liuchengxu/vim-which-key'
@@ -88,7 +89,7 @@ let g:airline_symbols.maxlinenr = ''
 "cp relative path  (src/foo.txt)
 nnoremap <leader>p :let @*=expand("%")<CR>
 "cp absolute path  (/something/src/foo.txt)
-nnoremap <leader>pp :let @*=expand("%:p")<CR>
+"nnoremap <leader>pp :let @*=expand("%:p")<CR>
 "cp directory name (/something/src)
 nnoremap <leader>P :let @*=expand("%:p:h")<CR>
 
@@ -98,10 +99,7 @@ autocmd ColorScheme * highlight! link SignColumn LineNr
 highlight! link SignColumn LineNr
 "let g:gitgutter_set_sign_backgrounds = 1
 let g:gitgutter_override_sign_column_highlight = 1
-nmap <Leader>gg <Plug>(GitGutterPreviewHunk)
-nmap <Leader>G <Plug>(GitGutterStageHunk)
-nmap <Leader>GG <Plug>(GitGutterUndoHunk)
-let g:gitgutter_close_preview_on_escape = 1
+nmap <Leader>d <Plug>(GitGutterPreviewHunk)
 
 " better whitespace
 let g:better_whitespace_enabled=1
@@ -110,25 +108,24 @@ let g:strip_whitespace_on_save=1
 " easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1 " Turn on case-insensitive feature
-"nmap <Leader>s <Plug>(easymotion-s)
 nmap <Leader>s <Plug>(easymotion-bd-w)
 nmap <Leader>S <Plug>(easymotion-bd-W)
+nmap <Leader>a <Plug>(easymotion-s)
 "nmap <Leader>j <Plug>(easymotion-bd-jk)
 "nmap <Leader>sss <Plug>(easymotion-s2)
 "nmap <Leader>sl <Plug>(easymotion-lineanywhere)
 
 " fzf
-nmap <Leader>f :GitFiles<CR>'
-nmap <Leader>ff :History<CR>'
-nmap <Leader>F :BLines<CR>'
+" filenames
+nmap <Leader>f :FZF<CR>'
+nmap <Leader>h :History<CR>'
+nmap <Leader>H :Buffer<CR>'
+nmap <Leader>g :GitFiles<CR>'
+nmap <Leader>G :GitFiles?<CR>'
+"file content
+nmap <Leader>r :BLines<CR>'
+nmap <Leader>R :Rg<CR>'
 
-nmap <Leader>fz :FZF<CR>'
-nmap <Leader>fr :Rg<CR>'
-nmap <Leader>fb :Buffer<CR>'
-nmap <Leader>fs :GitFiles?<CR>'
-
-
-" This is the default extra key bindings
 " https: // github.com/junegunn/fzf/blob/master/doc/fzf.txt
 " Default fzf layout
 let g:fzf_colors =
@@ -145,13 +142,9 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-
 " Popup window(center of the screen)
 let g:fzf_layout = {'window': {'width': 0.95, 'height': 0.6}}
 " Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 " command! LS call fzf  # run(fzf#wrap({'source': 'ls'}))
 
@@ -164,7 +157,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " write/quit
 nmap <Leader>w :w<CR>
-nmap <Leader>wq :wq!<CR>
+nmap <Leader>W :wq!<CR>
 nmap <Leader>q :q!<CR>
 
 " close buffer,tab
@@ -177,8 +170,8 @@ nnoremap <S-Tab> :bprevious<CR>
 nmap <Leader><Tab> <C-^>
 
 " insert lines below/above
-nmap oo o <Esc>
-nmap OO O <Esc>
+nmap <Leader>o o <Esc>
+nmap <Leader>O O <Esc>
 
 " copy to systemclipboard
 "map Y "*y<CR>
@@ -190,7 +183,7 @@ map <Left> <Nop>
 map <Right> <Nop>
 
 " git
-nmap <Leader>g :Git<CR>
+"nmap <Leader>g :Git<CR>
 
 " terminal
 let g:floaterm_keymap_toggle = '<C-S>'
@@ -234,3 +227,26 @@ noremap <leader>cd :Cd<CR>
 
 "which-key
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+"let g:which_key_map =  {}
+"let g:which_key_map.P = ['', 'cp file name']
+"let g:which_key_map.P = ['', 'cp file dir']
+"let g:which_key_map.s = ['', 'jump word']
+"let g:which_key_map.S = ['', 'jump WORD']
+"let g:which_key_map.s__a = ['', 'jump char']
+"let g:which_key_map.f = ['', 'fzf current dir']
+"let g:which_key_map.f__h = ['', 'fzf file history']
+"let g:which_key_map.f__H = ['', 'fzf buffers']
+"let g:which_key_map.f__g = ['', 'fzf git files']
+"let g:which_key_map.f__G = ['', 'fzf git Status files']
+"let g:which_key_map.f__r = ['', 'current file fuzzy line search']
+"let g:which_key_map.f__G = ['', 'fzf git Status files']
+"let g:which_key_map.w = ['', 'write/save']
+"let g:which_key_map.W = ['', 'write/save then quit']
+"let g:which_key_map.w__q = ['', 'quit w/o saving']
+"let g:which_key_map.w__c = ['', 'close buffer']
+"let g:which_key_map.w__C = ['', 'close window']
+"let g:which_key_map.o = ['', 'Line break below']
+"let g:which_key_map.O = ['', 'Line break above']
+"let g:which_key_map.TAB = ['', 'previous buffer']
+"let g:which_key_map.cd = ['', 'change dir']
+"call which_key#register('<Space>', "g:which_key_map")
