@@ -120,10 +120,10 @@ nmap <Leader>f :GitFiles<CR>'
 nmap <Leader>ff :History<CR>'
 nmap <Leader>F :BLines<CR>'
 
-nmap <Leader>f1 :FZF<CR>'
-nmap <Leader>f2 :Rg<CR>'
-nmap <Leader>f3 :Buffer<CR>'
-nmap <Leader>f4 :GitFiles?<CR>'
+nmap <Leader>fz :FZF<CR>'
+nmap <Leader>fr :Rg<CR>'
+nmap <Leader>fb :Buffer<CR>'
+nmap <Leader>fs :GitFiles?<CR>'
 
 
 " This is the default extra key bindings
