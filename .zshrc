@@ -27,7 +27,7 @@ defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 alias l='exa -l --all --classify --group-directories-first --color=auto --git --icons --no-time --no-user --no-permissions --no-filesize'
 alias ls='exa -l --group-directories-first --color=auto --git --icons --no-permissions --no-user'
 alias ll='exa -lahF --group-directories-first --color=auto --git --icons'
-alias tree='exa --tree --color=auto --git-ignore --group-directories-first --sort=type --icons --no-permissions --no-user -L'
+alias lt='exa --tree --color=auto --git-ignore --group-directories-first --sort=type --icons --no-permissions --no-user -L'
 
 # bat
 export BAT_THEME="gruvbox-dark"
