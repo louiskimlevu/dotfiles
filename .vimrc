@@ -116,13 +116,15 @@ nmap <Leader>S <Plug>(easymotion-bd-W)
 "nmap <Leader>sl <Plug>(easymotion-lineanywhere)
 
 " fzf
-nmap <Leader>FF :FZF<CR>'
-nmap <Leader>f :History<CR>'
-nmap <Leader>ff :Buffer<CR>'
+nmap <Leader>f :GitFiles<CR>'
+nmap <Leader>ff :History<CR>'
 nmap <Leader>F :BLines<CR>'
-nmap <Leader>r :Rg<CR>'
-nmap <Leader>R :GitFiles?<CR>'
-nmap <Leader>RR :GitFiles<CR>'
+
+nmap <Leader>f1 :FZF<CR>'
+nmap <Leader>f2 :Rg<CR>'
+nmap <Leader>f3 :Buffer<CR>'
+nmap <Leader>f4 :GitFiles?<CR>'
+
 
 " This is the default extra key bindings
 " https: // github.com/junegunn/fzf/blob/master/doc/fzf.txt
