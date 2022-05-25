@@ -51,7 +51,7 @@ Plug 'tpope/vim-commentary'
 "Plug 'justinmk/vim-sneak'
 Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
-Plug 'https://github.com/tpope/vim-fugitive'
+" Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'hashicorp/sentinel.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'morhetz/gruvbox'
@@ -104,7 +104,6 @@ let g:gitgutter_close_preview_on_escape = 1
 " better whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-
 
 " easymotion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -178,7 +177,6 @@ nmap OO O <Esc>
 
 " copy to systemclipboard
 "map Y "*y<CR>
-
 
 " disable arrow keys
 map <Up> <Nop>
