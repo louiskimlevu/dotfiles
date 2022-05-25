@@ -23,6 +23,7 @@ set termguicolors
 set clipboard=unnamed
 " opens the new window to the right of the current window when using :vsplit
 set spr
+set autoread
 
 syntax enable
 syntax on
