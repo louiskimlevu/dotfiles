@@ -173,6 +173,7 @@ nmap <Leader>C :close<CR>
 " move buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+nmap <Leader><Tab> <C-^>
 
 " insert lines below/above
 nmap oo o <Esc>
