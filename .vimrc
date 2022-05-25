@@ -53,6 +53,7 @@ Plug 'tpope/vim-commentary'
 Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
 " Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'hashivim/vim-terraform'
 Plug 'hashicorp/sentinel.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'morhetz/gruvbox'
@@ -117,13 +118,15 @@ nmap <Leader>S <Plug>(easymotion-bd-W)
 "nmap <Leader>sl <Plug>(easymotion-lineanywhere)
 
 " fzf
-nmap <Leader>FF :FZF<CR>'
-nmap <Leader>f :History<CR>'
-nmap <Leader>ff :Buffer<CR>'
+nmap <Leader>f :GitFiles<CR>'
+nmap <Leader>ff :History<CR>'
 nmap <Leader>F :BLines<CR>'
-nmap <Leader>r :Rg<CR>'
-nmap <Leader>R :GitFiles?<CR>'
-nmap <Leader>RR :GitFiles<CR>'
+
+nmap <Leader>fz :FZF<CR>'
+nmap <Leader>fr :Rg<CR>'
+nmap <Leader>fb :Buffer<CR>'
+nmap <Leader>fs :GitFiles?<CR>'
+
 
 " This is the default extra key bindings
 " https: // github.com/junegunn/fzf/blob/master/doc/fzf.txt
@@ -171,6 +174,7 @@ nmap <Leader>C :close<CR>
 " move buffers
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+nmap <Leader><Tab> <C-^>
 
 " insert lines below/above
 nmap oo o <Esc>
