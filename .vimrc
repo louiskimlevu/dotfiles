@@ -99,6 +99,8 @@ autocmd ColorScheme * highlight! link SignColumn LineNr
 highlight! link SignColumn LineNr
 "let g:gitgutter_set_sign_backgrounds = 1
 let g:gitgutter_override_sign_column_highlight = 1
+" disable default keys
+let g:gitgutter_map_keys = 0
 nmap <Leader>d <Plug>(GitGutterPreviewHunk)
 
 " better whitespace
