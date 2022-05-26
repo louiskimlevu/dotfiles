@@ -50,14 +50,15 @@ Plug 'airblade/vim-gitgutter'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-"Plug 'justinmk/vim-sneak'
 Plug 'voldikss/vim-floaterm'
 Plug 'easymotion/vim-easymotion'
-Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim'
 Plug 'hashivim/vim-terraform'
 Plug 'hashicorp/sentinel.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'morhetz/gruvbox'
+" Plug 'https://github.com/tpope/vim-fugitive'
+"Plug 'justinmk/vim-sneak'
 call plug#end()
 
 " gruvbox theme
