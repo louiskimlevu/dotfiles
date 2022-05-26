@@ -56,6 +56,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'hashivim/vim-terraform'
 Plug 'hashicorp/sentinel.vim'
 Plug 'liuchengxu/vim-which-key'
+Plug 'jiangmiao/auto-pairs'
 Plug 'morhetz/gruvbox'
 " Plug 'https://github.com/tpope/vim-fugitive'
 "Plug 'justinmk/vim-sneak'
@@ -128,6 +129,12 @@ nmap <Leader>G :GitFiles?<CR>'
 "file content
 nmap <Leader>r :BLines<CR>'
 nmap <Leader>R :Rg<CR>'
+"fuzzy cd
+command! -bang -bar -nargs=? -complete=dir Cd
+    \ call fzf#run(fzf#wrap(
+    \ {'source': 'find '.( empty("<args>") ? ( <bang>0 ? "~" : "." ) : "<args>" ) .' -type d',
+    \ 'sink': 'cd'}))
+noremap <leader>cd :Cd<CR>
 
 " https: // github.com/junegunn/fzf/blob/master/doc/fzf.txt
 " Default fzf layout
@@ -151,12 +158,6 @@ let g:fzf_layout = {'window': {'width': 0.95, 'height': 0.6}}
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 " command! LS call fzf  # run(fzf#wrap({'source': 'ls'}))
 
-" jump lines while cursor stay in the middle
-"nmap <Leader>k kzz
-"nmap <Leader>j jzz
-
-" escape insert mode
-"imap jj <ESC>
 
 " write/quit
 nmap <Leader>w :w<CR>
@@ -221,35 +222,6 @@ let g:startify_lists = [
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
 
-"fuzzy cd
-command! -bang -bar -nargs=? -complete=dir Cd
-    \ call fzf#run(fzf#wrap(
-    \ {'source': 'find '.( empty("<args>") ? ( <bang>0 ? "~" : "." ) : "<args>" ) .' -type d',
-    \ 'sink': 'cd'}))
-noremap <leader>cd :Cd<CR>
 
 "which-key
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-"let g:which_key_map =  {}
-"let g:which_key_map.P = ['', 'cp file name']
-"let g:which_key_map.P = ['', 'cp file dir']
-"let g:which_key_map.s = ['', 'jump word']
-"let g:which_key_map.S = ['', 'jump WORD']
-"let g:which_key_map.s__a = ['', 'jump char']
-"let g:which_key_map.f = ['', 'fzf current dir']
-"let g:which_key_map.f__h = ['', 'fzf file history']
-"let g:which_key_map.f__H = ['', 'fzf buffers']
-"let g:which_key_map.f__g = ['', 'fzf git files']
-"let g:which_key_map.f__G = ['', 'fzf git Status files']
-"let g:which_key_map.f__r = ['', 'current file fuzzy line search']
-"let g:which_key_map.f__G = ['', 'fzf git Status files']
-"let g:which_key_map.w = ['', 'write/save']
-"let g:which_key_map.W = ['', 'write/save then quit']
-"let g:which_key_map.w__q = ['', 'quit w/o saving']
-"let g:which_key_map.w__c = ['', 'close buffer']
-"let g:which_key_map.w__C = ['', 'close window']
-"let g:which_key_map.o = ['', 'Line break below']
-"let g:which_key_map.O = ['', 'Line break above']
-"let g:which_key_map.TAB = ['', 'previous buffer']
-"let g:which_key_map.cd = ['', 'change dir']
-"call which_key#register('<Space>', "g:which_key_map")
