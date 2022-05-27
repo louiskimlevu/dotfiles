@@ -57,7 +57,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashicorp/sentinel.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'jiangmiao/auto-pairs'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 " Plug 'https://github.com/tpope/vim-fugitive'
 "Plug 'justinmk/vim-sneak'
 call plug#end()
@@ -222,6 +222,8 @@ let g:startify_lists = [
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ ]
 
-
 "which-key
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+" NerdTree
+nmap <Leader>b :NERDTree<CR>
