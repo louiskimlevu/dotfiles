@@ -38,7 +38,7 @@ alias c='clear'
 
 # Vim to recognise the kind of terminal
 export TERM="xterm-256color"
-alias v="vim"
+alias v="nvim"
 
 # fzf
 export FZF_BASE=/opt/homebrew/opt/fzf

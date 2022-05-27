@@ -25,7 +25,6 @@ set clipboard=unnamed
 set spr
 set autoread
 set cursorline
-
 syntax enable
 syntax on
 hi Comment gui=italic cterm=italic
@@ -255,3 +254,10 @@ set encoding=UTF-8
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeGitStatusShowClean = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
+
+
+
+" neovim specific
+" " for startfiy
+set viminfo='100,n$HOME/.vim/files/info/viminfo
+
