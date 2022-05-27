@@ -50,7 +50,6 @@ export FZF_DEFAULT_OPTS="--height 50% \
 
 # git
 alias g='git'
-alias ga='git add --verbose'
 alias gs='git status --untracked-files --short --branch'
 alias gl='git log --oneline'
 alias g2l="git log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'"

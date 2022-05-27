@@ -47,7 +47,6 @@ Plug 'mhinz/vim-startify'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'psliwka/vim-smoothie'
 Plug 'airblade/vim-gitgutter'
-Plug 'preservim/nerdtree'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'voldikss/vim-floaterm'
@@ -57,8 +56,16 @@ Plug 'hashivim/vim-terraform'
 Plug 'hashicorp/sentinel.vim'
 Plug 'liuchengxu/vim-which-key'
 Plug 'jiangmiao/auto-pairs'
+Plug 'https://github.com/tpope/vim-fugitive'
+" nerdtree
+Plug 'preservim/nerdtree' |
+  \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+  \ Plug 'ryanoasis/vim-devicons' |
+  \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Set VimDevIcons to load after these plugins!
+" NERDTree | vim-airline | CtrlP | powerline | Denite | unite | lightline.vim | vim-startify | vimfiler | flagship
+
 Plug 'gruvbox-community/gruvbox'
-" Plug 'https://github.com/tpope/vim-fugitive'
 "Plug 'justinmk/vim-sneak'
 call plug#end()
 
@@ -75,7 +82,10 @@ let mapleader=" "
 
 " airline
 let g:airline_theme='gruvbox'
+" If you use vim-airline you need powerline fonts
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
@@ -99,8 +109,8 @@ nnoremap <leader>P :let @*=expand("%:p:h")<CR>
 let g:gitgutter_enabled = 1
 autocmd ColorScheme * highlight! link SignColumn LineNr
 highlight! link SignColumn LineNr
-"let g:gitgutter_set_sign_backgrounds = 1
-let g:gitgutter_override_sign_column_highlight = 1
+let g:gitgutter_set_sign_backgrounds = 0
+let g:gitgutter_override_sign_column_highlight = 0
 " disable default keys
 let g:gitgutter_map_keys = 0
 nmap <Leader>d <Plug>(GitGutterPreviewHunk)
@@ -186,13 +196,11 @@ map <Down> <Nop>
 map <Left> <Nop>
 map <Right> <Nop>
 
-" git
-"nmap <Leader>g :Git<CR>
-
 " terminal
 let g:floaterm_keymap_toggle = '<C-S>'
 let g:floaterm_width = 0.95
 let g:floaterm_height = 0.95
+let g:floaterm_title=''
 
 " startify
 " returns all modified files of the current git repo
@@ -226,4 +234,24 @@ let g:startify_lists = [
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " NerdTree
-nmap <Leader>b :NERDTree<CR>
+map <C-n> :call NERDTreeToggleAndRefresh()<CR>
+
+function NERDTreeToggleAndRefresh()
+  :NERDTreeToggle
+  if g:NERDTree.IsOpen()
+    :NERDTreeRefreshRoot
+    :NERDTreeRefreshRoot
+    :NERDTreeRefreshRoot
+  endif
+endfunction
+
+" Coc settings
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" devicons
+set encoding=UTF-8
+" nerdtree git plugin
+let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
+let g:NERDTreeGitStatusShowClean = 1
+let g:NERDTreeGitStatusConcealBrackets = 1
