@@ -260,4 +260,6 @@ let g:NERDTreeGitStatusConcealBrackets = 1
 " neovim specific
 " " for startfiy
 set viminfo='100,n$HOME/.vim/files/info/viminfo
+"floaterm
+hi FloatermBorder guibg=background guifg=grey
 
