@@ -25,9 +25,11 @@ set clipboard=unnamed
 set spr
 set autoread
 set cursorline
+set encoding=UTF-8
 syntax enable
 syntax on
 hi Comment gui=italic cterm=italic
+set viminfo='100,n$HOME/.vim/files/info/viminfo
 
 " Install vim-plug if not found
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -167,7 +169,6 @@ let g:fzf_layout = {'window': {'width': 0.95, 'height': 0.6}}
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 " command! LS call fzf  # run(fzf#wrap({'source': 'ls'}))
 
-
 " write/quit
 nmap <Leader>w :w<CR>
 nmap <Leader>W :wq!<CR>
@@ -201,6 +202,10 @@ let g:floaterm_width = 0.95
 let g:floaterm_height = 0.95
 let g:floaterm_title=''
 
+"commentary
+" <C-_> means Ctrl + /
+map <C-_> gcc
+
 " startify
 " returns all modified files of the current git repo
 " `2>/dev/null` makes the command fail quietly, so that when we are not
@@ -218,7 +223,7 @@ endfunction
 
 let g:startify_files_number = 5
 let g:startify_custom_header = 'startify#center(startify#fortune#cowsay())'
-let g:startify_bookmarks = [{'v': '~/.vimrc'},{'z': '~/.zshrc'},{'t': '~/.tmux.conf'}]
+let g:startify_bookmarks = [{'v': '~/.vimrc'},{'n': '~/.config/nvim/init.vim'},{'z': '~/.zshrc'},{'t': '~/.tmux.conf'}]
 let g:startify_lists = [
         \ { 'type': 'files',     'header': ['   MRU']            },
         \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
@@ -234,7 +239,6 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " NerdTree
 map <C-n> :call NERDTreeToggleAndRefresh()<CR>
-
 function NERDTreeToggleAndRefresh()
   :NERDTreeToggle
   if g:NERDTree.IsOpen()
@@ -243,23 +247,13 @@ function NERDTreeToggleAndRefresh()
     :NERDTreeRefreshRoot
   endif
 endfunction
-
-" Coc settings
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
 " devicons
-set encoding=UTF-8
 " nerdtree git plugin
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let g:NERDTreeGitStatusShowClean = 1
 let g:NERDTreeGitStatusConcealBrackets = 1
 
-
-
-" neovim specific
-" " for startfiy
-set viminfo='100,n$HOME/.vim/files/info/viminfo
-"floaterm
-hi FloatermBorder guibg=background guifg=grey
-
+" Coc settings
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+hi FloatermBorder guibg=dark guifg=grey
