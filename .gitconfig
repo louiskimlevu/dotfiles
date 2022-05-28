@@ -27,7 +27,7 @@
 	sh = show
 	d = diff
 	co = checkout
-	c = commit
+	c = commit -m
 	unstage = reset HEAD --
 [user]
 	name = louiskim
