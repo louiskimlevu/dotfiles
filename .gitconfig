@@ -26,6 +26,8 @@
 	l = log --oneline
 	sh = show
 	d = diff
+  dc = diff --cached
+  dh = diff HEAD
 	co = checkout
 	c = commit -m
 	unstage = reset HEAD --
