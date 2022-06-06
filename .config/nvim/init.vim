@@ -170,10 +170,8 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " command! LS call fzf  # run(fzf#wrap({'source': 'ls'}))
 
 " write/quit
-nmap <Leader>w :w<CR>
-nmap <Leader>W :wq!<CR>
-nmap <Leader>q :q!<CR>
-
+imap <C-W> <Esc>:w<CR>
+map <C-W> :w<CR>
 " close buffer,tab
 nmap <Leader>c :bd<CR>
 nmap <Leader>C :close<CR>
