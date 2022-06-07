@@ -55,6 +55,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'easymotion/vim-easymotion'
 Plug 'hashivim/vim-terraform'
 Plug 'hashicorp/sentinel.vim'
+Plug 'towolf/vim-helm'
 Plug 'liuchengxu/vim-which-key'
 Plug 'jiangmiao/auto-pairs'
 Plug 'https://github.com/tpope/vim-fugitive'
