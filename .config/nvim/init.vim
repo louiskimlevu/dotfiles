@@ -30,6 +30,8 @@ syntax enable
 syntax on
 hi Comment gui=italic cterm=italic
 set viminfo='100,n$HOME/.vim/files/info/viminfo
+" so that _ is considered to seperate words
+set iskeyword-=_
 
 " Install vim-plug if not found
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
