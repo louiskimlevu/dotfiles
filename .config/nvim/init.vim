@@ -239,6 +239,7 @@ let g:startify_lists = [
 nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " NerdTree
+let NERDTreeShowHidden=1
 map <C-n> :call NERDTreeToggleAndRefresh()<CR>
 function NERDTreeToggleAndRefresh()
   :NERDTreeToggle
