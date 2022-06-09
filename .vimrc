@@ -234,7 +234,7 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " NerdTree
 map <C-n> :call NERDTreeToggleAndRefresh()<CR>
-
+let NERDTreeShowHidden=1
 function NERDTreeToggleAndRefresh()
   :NERDTreeToggle
   if g:NERDTree.IsOpen()
