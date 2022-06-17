@@ -11,6 +11,7 @@ fi
 source $(brew --prefix)/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 antigen use copypath
+antugen bundle aliases
 antigen bundle fzf
 antigen bundle z
 antigen bundle tmux
