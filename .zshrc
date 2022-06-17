@@ -15,13 +15,13 @@ antigen bundle aliases
 antigen bundle fzf
 antigen bundle z
 antigen bundle tmux
+antigen bundle aws
 antigen bundle kubectl
 antigen bundle kubectx
 antigen bundle terraform
 antigen byndle helm
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle aws
 
 #antigen theme romkatv/powerlevel10k
 antigen apply
