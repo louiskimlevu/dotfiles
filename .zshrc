@@ -19,7 +19,7 @@ antigen bundle aws
 antigen bundle kubectl
 antigen bundle kubectx
 antigen bundle terraform
-antigen byndle helm
+antigen bundle helm
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 
