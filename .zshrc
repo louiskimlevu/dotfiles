@@ -10,7 +10,7 @@ fi
 # antigen
 source $(brew --prefix)/share/antigen/antigen.zsh
 antigen use oh-my-zsh
-antigen use copypath
+antigen bundle copypath
 antigen bundle aliases
 antigen bundle fzf
 antigen bundle z
