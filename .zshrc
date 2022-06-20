@@ -76,6 +76,9 @@ export EDITOR="vim"
 export GIT_EDITOR="vim"
 export VISUAL="vim"
 
+# k8s
+export KUBE_EDITOR=nvim
+
 # dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
