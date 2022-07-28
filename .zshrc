@@ -79,7 +79,14 @@ export VISUAL="vim"
 # k8s
 export KUBE_EDITOR=nvim
 
+# aws autocompletion
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C '/opt/homebrew/bin/aws_completer' aws
+
 # dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
+
+#
 
