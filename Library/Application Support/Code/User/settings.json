@@ -65,7 +65,7 @@
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.vim",
   "files.autoSave": "afterDelay",
-  "window.zoomLevel": 3,
+  "window.zoomLevel": 1,
   "yaml.customTags": [
     "!And",
     "!And sequence",

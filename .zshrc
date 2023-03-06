@@ -78,6 +78,7 @@ export VISUAL="vim"
 
 # k8s
 export KUBE_EDITOR=nvim
+alias k=kubectl
 
 # dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
