@@ -65,7 +65,6 @@
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.vim",
   "files.autoSave": "afterDelay",
-  "window.zoomLevel": 1,
   "yaml.customTags": [
     "!And",
     "!And sequence",
@@ -100,5 +99,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "redhat.telemetry.enabled": true
+  "redhat.telemetry.enabled": true,
+  "workbench.colorTheme": "Gruvbox Dark Medium"
 }
