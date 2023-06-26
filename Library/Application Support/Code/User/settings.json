@@ -1,6 +1,5 @@
 {
   "git.autofetch": true,
-  "jupyter.sendSelectionToInteractiveWindow": false,
   "jupyter.askForKernelRestart": false,
   "[javascript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -95,10 +94,20 @@
     "!Split sequence"
   ],
   "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
+  "python.linting.pylintArgs": [
+    "--disable=C0114,C0115,R0903"
+],
+
+
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "redhat.telemetry.enabled": true,
-  "workbench.colorTheme": "Gruvbox Dark Medium"
+  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "jupyter.interactiveWindow.textEditor.executeSelection": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+
+
 }
