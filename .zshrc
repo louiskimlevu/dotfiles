@@ -149,7 +149,7 @@ alias c='clear'
 
 # vim
 export TERM="xterm-256color"
-alias v="lvim"
+alias v="nvim"
 export PATH="$HOME/.local/bin":$PATH
 export EDITOR="lvim"
 export GIT_EDITOR="lvim"
@@ -208,3 +208,7 @@ eval "$(pyenv virtualenv-init -)"
 
 # lazygit
 alias lg='lazygit'
+
+# Setting for the new UTF-8 terminal support in Lion
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
