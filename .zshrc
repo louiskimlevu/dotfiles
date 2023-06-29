@@ -204,7 +204,8 @@ alias tfaa='terraform apply -auto-approve'
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+rm -f ~/.pyenv/version
+pyenv global 3.11.4
 
 # lazygit
 alias lg='lazygit'
