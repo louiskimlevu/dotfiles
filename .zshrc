@@ -150,6 +150,7 @@ alias c='clear'
 # vim
 export TERM="xterm-256color"
 alias v="nvim"
+alias vim="nvim"
 export PATH="$HOME/.local/bin":$PATH
 export EDITOR="lvim"
 export GIT_EDITOR="lvim"
@@ -170,46 +171,4 @@ alias gs='git status --untracked-files --short --branch'
 alias gl='git log --oneline'
 alias g2l="git log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'"
 alias g3l="git log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset' --name-status"
-alias g4l="git log --stat --oneline"
-alias g5l="git log --oneline -p"
-alias gsh='git show'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gdh='git diff HEAD'
-alias gls='git ls-files'
-
-# k8s
-alias k="kubectl"
-alias kns=kubens
-alias kcx=kubectx
-PROMPT='$(kube_ps1)'$PROMPT
-# RPS1='$(kubectx_prompt_info)'
-# PROMPT='$(kube_ps1)'$PROMPT
-alias kon="kubeon" #turn on kube-ps1 status for this shell
-alias koff="kubeoff"
-koff # disable kube prompt default
-
-
-
-# aws autocompletion
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-complete -C '/opt/homebrew/bin/aws_completer' aws
-
-# terraform
-alias tfaa='terraform apply -auto-approve'
-
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-rm -f ~/.pyenv/version
-pyenv global 3.11.4
-
-# lazygit
-alias lg='lazygit'
-
-# Setting for the new UTF-8 terminal support in Lion
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8
+alias g4l="git log --stat --oneline" alias g5l="git log --oneline -p" alias gsh='git show' alias gd='git diff' alias gdc='git diff --cached' alias gdh='git diff HEAD' alias gls='git ls-files' # k8s alias k="kubectl" alias kns=kubens alias kcx=kubectx PROMPT='$(kube_ps1)'$PROMPT RPS1='$(kubectx_prompt_info)' PROMPT='$(kube_ps1)'$PROMPT alias kon="kubeon" #turn on kube-ps1 status for this shell alias koff="kubeoff" koff # disable kube prompt default aws autocompletion autoload bashcompinit && bashcompinit autoload -Uz compinit && compinit complete -C '/opt/homebrew/bin/aws_completer' aws terraform alias tfaa='terraform apply -auto-approve' pyenv export PYENV_ROOT="$HOME/.pyenv" command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH" eval "$(pyenv init -)" rm -f ~/.pyenv/version pyenv global 3.11.4 lazygit alias lg='lazygit' Setting for the new UTF-8 terminal support in Lion LC_CTYPE=en_US.UTF-8 LC_ALL=en_US.UTF-8
