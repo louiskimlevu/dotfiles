@@ -2,3 +2,6 @@
 ```
 config ls-tree --full-tree --name-only -r HEAD
 ```
+
+# Onboard new linux/mac machine
+
