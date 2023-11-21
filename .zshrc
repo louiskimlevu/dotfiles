@@ -87,7 +87,7 @@ plugins=(
   z
   kubectl
   kubectx
-  kube-ps1
+  # kube-ps1
   terraform
   helm
   zsh-autosuggestions
@@ -182,9 +182,12 @@ alias gls='git ls-files'
 # k8s
 alias k="kubectl"
 alias kns=kubens
-alias kcx=kubectx PROMPT='$(kube_ps1)'$PROMPT RPS1='$(kubectx_prompt_info)' PROMPT='$(kube_ps1)'$PROMPT
+alias kcx=kubectx
+chmod +x $(brew list kube-ps1)
+source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
 alias kon="kubeon" #turn on kube-ps1 status for this shell
-alias koff="kubeoff" 
+alias koff="kubeoff"
 koff # disable kube prompt
 
 # aws
