@@ -2,7 +2,7 @@
   "files.autoSave": "afterDelay",
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
-  "workbench.colorTheme": "Atom One Dark",
+  "workbench.colorTheme": "Rosé Pine",
   "yaml.customTags": [
     "!And",
     "!And sequence",
@@ -34,4 +34,5 @@
   ],
   "git.autofetch": true,
   "window.zoomLevel": 1,
+  "workbench.iconTheme": "rose-pine-icons",
 }
