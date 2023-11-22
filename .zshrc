@@ -79,12 +79,13 @@ fi
 if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi
+
 plugins=(
   git
   copypath
   aliases
   fzf
-  z
+  # z
   kubectl
   kubectx
   # kube-ps1
@@ -196,7 +197,7 @@ PS1='$(kube_ps1)'$PS1
 alias kon="kubeon" #turn on kube-ps1 status for this shell
 alias koff="kubeoff"
 koff # disable kube prompt
-
+export XDG_CONFIG_HOME="$HOME/.config"
 # aws
 # default aws autocompletion autoload bashcompinit && bashcompinit autoload -Uz compinit && compinit complete -C '/opt/homebrew/bin/aws_completer' aws terraform 
 
@@ -208,3 +209,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 alias lg='lazygit'
+
+
+# autojump
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+jj () {
+  dir=$(j --complete | cut -d'_' -f5 | fzf)
+  cd $dir
+}
