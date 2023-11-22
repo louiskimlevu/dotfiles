@@ -159,11 +159,18 @@ export KUBE_EDITOR=lvim
 
 # fzf
 export FZF_BASE=/opt/homebrew/opt/fzf
-export FZF_DEFAULT_OPTS="--height 50% \
-  --preview='bat --color=always --style=numbers {}' \
-  --layout=reverse --info=inline --border \
-  --color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934 \
-  --bind shift-up:preview-page-up,shift-down:preview-page-down,up:preview-up,down:preview-down"
+# fzf-rosepine https://github.com/rose-pine/fzf/blob/main/dist/rose-pine.sh
+export FZF_DEFAULT_OPTS="
+        --color=fg:#908caa,bg:#191724,hl:#ebbcba
+        --color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
+        --color=border:#403d52,header:#31748f,gutter:#191724
+        --color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
+        --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+# export FZF_DEFAULT_OPTS="--height 50% \
+#   --preview='bat --color=always --style=numbers {}' \
+#   --layout=reverse --info=inline --border \
+#   --color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934 \
+#   --bind shift-up:preview-page-up,shift-down:preview-page-down,up:preview-up,down:preview-down"
 
 # git
 alias g='git'
