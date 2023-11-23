@@ -142,7 +142,7 @@ alias ll='exa -lahF --group-directories-first --color=auto --git --icons'
 alias lt='exa --tree --color=auto --git-ignore --group-directories-first --sort=type --icons --no-permissions --no-user -L'
 
 # bat
-export BAT_THEME="gruvbox-dark"
+# export BAT_THEME="gruvbox-dark"
 alias cat='bat --style=plain --paging=never' # clear
 
 # clear
@@ -198,6 +198,7 @@ alias kon="kubeon" #turn on kube-ps1 status for this shell
 alias koff="kubeoff"
 koff # disable kube prompt
 export XDG_CONFIG_HOME="$HOME/.config"
+
 # aws
 # default aws autocompletion autoload bashcompinit && bashcompinit autoload -Uz compinit && compinit complete -C '/opt/homebrew/bin/aws_completer' aws terraform 
 
@@ -208,12 +209,16 @@ alias tfaa='terraform apply -auto-approve'
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
-alias lg='lazygit'
+eval "$(pyenv virtualenv-init -)"
 
+# lazygit
+alias lg='lazygit'
 
 # autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+#  an use <C-f> iterm keybind to use jj
 jj () {
+  # search in recent directories
   dir=$(j --complete | cut -d'_' -f5 | fzf)
   cd $dir
 }
