@@ -176,7 +176,7 @@ export FZF_DEFAULT_OPTS="
 # git
 alias g='git'
 alias gs='git status --untracked-files --short --branch'
-alias ga='git add .'
+alias ga='git add --verbose'
 # alias gc='cz commit'
 alias gc='g cz'
 alias gl='git log --oneline'
@@ -189,6 +189,7 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdh='git diff HEAD'
 alias gls='git ls-files'
+alias gck='git checkout'
 
 # k8s
 alias k="kubectl"
