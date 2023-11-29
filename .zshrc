@@ -113,7 +113,7 @@ source $ZSH/oh-my-zsh.sh
 #antigen bundle fzf
 #antigen bundle z
 #antigen bundle tmux
-##antigen bundle aws
+#antigen bundle aws
 #antigen bundle kubectl
 #antigen bundle kubectx
 #antigen bundle terraform
@@ -176,10 +176,13 @@ export FZF_DEFAULT_OPTS="
 # git
 alias g='git'
 alias gs='git status --untracked-files --short --branch'
+alias ga='git add .'
+# alias gc='cz commit'
+alias gc='g cz'
 alias gl='git log --oneline'
-alias g2l="git log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'"
-alias g3l="git log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset' --name-status"
-alias g4l="git log --stat --oneline"
+alias g2l="git log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'"
+alias g3l="git log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset' --name-status"
+alias g4l="git log --graph --stat --oneline"
 alias g5l="git log --oneline -p"
 alias gsh='git show'
 alias gd='git diff'
