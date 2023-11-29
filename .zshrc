@@ -223,6 +223,6 @@ alias lg='lazygit'
 #  an use <C-f> iterm keybind to use jj
 jj () {
   # search in recent directories
-  dir=$(j --complete | cut -d'_' -f5 | fzf)
+  dir=$(j -s | grep '/' | cut -d':' -f2 | awk '{$1=$1};1' | fzf)
   cd $dir
 }
