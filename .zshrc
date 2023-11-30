@@ -124,9 +124,9 @@ source $ZSH/oh-my-zsh.sh
 #antigen theme romkatv/powerlevel10k
 #antigen apply
 
-
 # dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias config='/usr/bin/git --git-dir=$HOME/.git-dotfiles/ --work-tree=$HOME'
+alias config-lg='lg -g $HOME/.git-dotfiles/ -w $HOME'
 config config --local status.showUntrackedFiles no
 
 # iterm2
@@ -190,6 +190,8 @@ alias gdc='git diff --cached'
 alias gdh='git diff HEAD'
 alias gls='git ls-files'
 alias gck='git checkout'
+alias gp='git pull'
+alias gP='git push'
 
 # k8s
 alias k="kubectl"
@@ -226,3 +228,10 @@ jj () {
   dir=$(j -s | grep '/' | cut -d':' -f2 | awk '{$1=$1};1' | fzf)
   cd $dir
 }
+
+# delete nvim swap files
+rm -rf ~/.local/state/nvim/swap
+
+
+
+
