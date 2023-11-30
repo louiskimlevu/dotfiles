@@ -45,14 +45,14 @@
     "BTTNotchBarNotchMenubarModeHideLeftFixed" : true,
     "BTTMovePastedToTop" : true,
     "BTTMaxAllowedDrawingRotation" : 30,
-    "BTTDidRegisterForUpdateStats" : "4.329",
+    "BTTDidRegisterForUpdateStats" : "4.334",
     "BTTNotchBarNotchWidgetModeHideRightFixed" : false,
     "BTTStageManagerLeaveGap" : true,
     "BTTStageManagerLeftSnappingAreaIncreasePercentage" : 0.125,
     "BTTTpFourFingerSwipeSensitivity" : 0.40000000000000002,
     "BSTMoveTreshold" : 2,
     "BTTHideFomControlStripWhenOpen" : false,
-    "BTTNumberOfStarts" : 10299,
+    "BTTNumberOfStarts" : 10304,
     "BTTForceNormalClickPressure3F" : 150,
     "showSiriRemoteTab" : true,
     "SIRIScrollSpeed" : 1,
@@ -101,7 +101,7 @@
     "BTTEnableUsageLogging" : true,
     "snapBottomLeft" : true,
     "BTTScreenshotOpenImgurInBrowser" : true,
-    "BTTDontRestartAfterSleep" : true,
+    "BTTDontRestartAfterSleep" : false,
     "BTTForceNormalClickPressure2F" : 140,
     "BSTSnapAreaDefaultInvisible" : false,
     "BTTDrawingAreaHeight" : 626,
@@ -156,8 +156,16 @@
     "BTTNotchBarNotchMenubarModeHideRightScrollable" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "0B5E34DF-A3FE-4084-9BE2-4B01A4E79C51",
+  "BTTPresetUUID" : "04605AAA-5E6E-4F95-B3E5-34C21389465A",
   "BTTPresetContent" : [
+    {
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
+      "BTTAppAutoInvertIcon" : 1,
+      "BTTTriggers" : [
+
+      ]
+    },
     {
       "BTTAppBundleIdentifier" : "BT.G",
       "BTTAppName" : "Global",
@@ -185,14 +193,6 @@
           "BTTOrder" : 4,
           "BTTAutoAdaptToKeyboardLayout" : 0
         }
-      ]
-    },
-    {
-      "BTTAppBundleIdentifier" : "com.apple.finder",
-      "BTTAppName" : "Finder",
-      "BTTAppAutoInvertIcon" : 1,
-      "BTTTriggers" : [
-
       ]
     }
   ],
