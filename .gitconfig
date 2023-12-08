@@ -1,6 +1,7 @@
 # https://github.com/so-fancy/diff-so-fancy#usage
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /Users/louiskim/.gitignore_global
 [color]
 	ui = true
 [color "diff-highlight"]
@@ -32,8 +33,14 @@
 	c = commit -m
 	unstage = reset HEAD --
 [user]
-	name = louiskim
+	name = Louis Kim Le Vu
 	email = louiskim.levu@gmail.com
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
