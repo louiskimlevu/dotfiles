@@ -86,6 +86,7 @@ plugins=(
   aliases
   fzf
   # z
+  aws
   kubectl
   kubectx
   # kube-ps1
@@ -204,9 +205,6 @@ alias kon="kubeon" #turn on kube-ps1 status for this shell
 alias koff="kubeoff"
 koff # disable kube prompt
 export XDG_CONFIG_HOME="$HOME/.config"
-
-# aws
-# default aws autocompletion autoload bashcompinit && bashcompinit autoload -Uz compinit && compinit complete -C '/opt/homebrew/bin/aws_completer' aws terraform 
 
 # terraform
 alias tfaa='terraform apply -auto-approve'
