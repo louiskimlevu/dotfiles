@@ -230,4 +230,5 @@ jj () {
 # delete nvim swap files
 rm -rf ~/.local/state/nvim/swap
 
-
+# goenv
+eval "$(goenv init -)"
