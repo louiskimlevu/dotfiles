@@ -222,14 +222,12 @@ alias lg='lazygit'
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 #  an use <C-f> iterm keybind to use jj
 jj () {
-  # search in recent directories
+  # search in recent directories 
   dir=$(j -s | grep '/' | cut -d':' -f2 | awk '{$1=$1};1' | fzf)
   cd $dir
 }
 
 # delete nvim swap files
 rm -rf ~/.local/state/nvim/swap
-
-
 
 

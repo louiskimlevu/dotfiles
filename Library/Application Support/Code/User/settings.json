@@ -34,10 +34,10 @@
   "window.zoomLevel": 1,
   "workbench.iconTheme": "material-icon-theme",
 
-  	// Enable autocompletion for required fields when completing Terraform blocks. Combine with `editor.suggest.preview` and the editor will provide inline snippet suggestions for blocks of code
-	"terraform.experimentalFeatures.prefillRequiredFields": true,
+  // Enable autocompletion for required fields when completing Terraform blocks. Combine with `editor.suggest.preview` and the editor will provide inline snippet suggestions for blocks of code
+  "terraform.experimentalFeatures.prefillRequiredFields": true,
 
-	// Enable validating the currently open file on save
+  // Enable validating the currently open file on save
   "terraform.experimentalFeatures.validateOnSave": true,
   "workbench.colorTheme": "Tokyo Night Storm",
   "editor.formatOnSave": true,
