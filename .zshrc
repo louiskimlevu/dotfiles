@@ -232,3 +232,6 @@ rm -rf ~/.local/state/nvim/swap
 
 # goenv
 eval "$(goenv init -)"
+
+# please
+source <(plz --completion_script)
