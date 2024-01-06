@@ -33,13 +33,55 @@
   "git.autofetch": true,
   "window.zoomLevel": 1,
   "workbench.iconTheme": "material-icon-theme",
-
   // Enable autocompletion for required fields when completing Terraform blocks. Combine with `editor.suggest.preview` and the editor will provide inline snippet suggestions for blocks of code
   "terraform.experimentalFeatures.prefillRequiredFields": true,
-
   // Enable validating the currently open file on save
   "terraform.experimentalFeatures.validateOnSave": true,
   "workbench.colorTheme": "Tokyo Night Storm",
   "editor.formatOnSave": true,
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  // cursor color
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#f7768e", // light blue
+    "terminalCursor.foreground": "#ffffff" // white
+  },
+
+  // vim 
+  // https://github.com/VSCodeVim/Vim#quick-example
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  // "vim.insertModeKeyBindings": [
+  //   {
+  //     "before": ["j", "j"],
+  //     "after": ["<Esc>"]
+  //   }
+  // ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // {
+    //   "before": ["<leader>", "d"],
+    //   "after": ["d", "d"]
+    // },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  }
 }
