@@ -240,4 +240,5 @@ rm -rf ~/.local/state/nvim/swap
 eval "$(goenv init -)"
 
 # please
+PATH=${PATH}:~/.please/bin
 source <(plz --completion_script)
