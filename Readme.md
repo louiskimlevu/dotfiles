@@ -2,6 +2,13 @@
 
 This repo should be clone in the $HOME folder
 
+## update bashrc
+```bash
+alias config='/usr/bin/git --git-dir=$HOME/.git-dotfiles/ --work-tree=$HOME'
+alias config-lg='lg -g $HOME/.git-dotfiles/ -w $HOME'
+config config --local status.showUntrackedFiles no
+```
+
 ## To copy the dotfiles in a new machine
 
 ```bash
