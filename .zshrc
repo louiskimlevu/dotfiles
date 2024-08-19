@@ -106,25 +106,6 @@ fi
 source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# antigen
-# source $(brew --prefix)/share/antigen/antigen.zsh
-#antigen use oh-my-zsh
-#antigen bundle copypath
-#antigen bundle aliases
-#antigen bundle fzf
-#antigen bundle z
-#antigen bundle tmux
-#antigen bundle aws
-#antigen bundle kubectl
-#antigen bundle kubectx
-#antigen bundle terraform
-#antigen bundle helm
-#antigen bundle zsh-users/zsh-autosuggestions
-#antigen bundle zsh-users/zsh-syntax-highlighting
-
-#antigen theme romkatv/powerlevel10k
-#antigen apply
-
 # dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.git-dotfiles/ --work-tree=$HOME'
 alias config-lg='lg -g $HOME/.git-dotfiles/ -w $HOME'
@@ -174,7 +155,7 @@ export FZF_BASE=/opt/homebrew/opt/fzf
 #   --color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934 \
 #   --bind shift-up:preview-page-up,shift-down:preview-page-down,up:preview-up,down:preview-down"
 # tokyo night fzf
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' 
+export FZF_DEFAULT_OPTS=' 
 	--color=fg:#c0caf5,bg:#1b1f30,hl:#41b59b
 	--color=fg+:#c0caf5,bg+:#1b1f30,hl+:#41b59b
 	--color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff 
@@ -204,12 +185,12 @@ alias gP='git push'
 alias k="kubectl"
 alias kns=kubens
 alias kcx=kubectx
-chmod +x $(brew list kube-ps1)
-source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
-PS1='$(kube_ps1)'$PS1
-alias kon="kubeon" #turn on kube-ps1 status for this shell
-alias koff="kubeoff"
-koff # disable kube prompt
+# chmod +x $(brew list kube-ps1)
+# source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+# PS1='$(kube_ps1)'$PS1
+# alias kon="kubeon" #turn on kube-ps1 status for this shell
+# alias koff="kubeoff"
+# koff # disable kube prompt
 export XDG_CONFIG_HOME="$HOME/.config"
 
 # terraform
@@ -226,19 +207,39 @@ alias lg='lazygit'
 
 # autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-#  an use <C-f> iterm keybind to use jj
-jj () {
+# keybind jj to <C-f>
+autojumpfzf () {
   # search in recent directories 
   dir=$(j -s | grep '/' | cut -d':' -f2 | awk '{$1=$1};1' | fzf)
   cd $dir
 }
 
+# aliasfzf
+# keybind jj to <C-g>
+aliasfzf () {
+  selected_alias=$(alias | fzf)
+  command="${selected_alias#*=}"
+  echo "$command"
+  print -z $command
+}
+
 # delete nvim swap files
-rm -rf ~/.local/state/nvim/swap
+# rm -rf ~/.local/state/nvim/swap
 
 # goenv
-eval "$(goenv init -)"
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+# Homebrew
+# brew install go
+export GOROOT="$(brew --prefix golang)/libexec"
+# Manual install
+# export GOROOT=/usr/local/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 # please
 PATH=${PATH}:~/.please/bin
 source <(plz --completion_script)
+
+# k9s
+alias k9s='k9s --logoless'

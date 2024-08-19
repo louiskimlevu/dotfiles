@@ -1,6 +1,12 @@
 {
+  // disable unknown word hints
+  "cSpell.diagnosticLevel": "Hint",
+
+  // git
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
+
+  // cloudformation
   "yaml.customTags": [
     "!And",
     "!And sequence",
@@ -31,7 +37,6 @@
     "!Split sequence"
   ],
   "git.autofetch": true,
-  "window.zoomLevel": 1,
   "workbench.iconTheme": "material-icon-theme",
   // Enable autocompletion for required fields when completing Terraform blocks. Combine with `editor.suggest.preview` and the editor will provide inline snippet suggestions for blocks of code
   "terraform.experimentalFeatures.prefillRequiredFields": true,
@@ -46,9 +51,13 @@
     "terminalCursor.foreground": "#ffffff" // white
   },
 
-  // vim 
+
+
+
+  // vim (disabled for now)
+  // "editor.lineNumbers": "relative",
   // https://github.com/VSCodeVim/Vim#quick-example
-  "vim.easymotion": true,
+  // "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
@@ -74,14 +83,35 @@
       "silent": true
     }
   ],
-  "vim.leader": "<space>",
+  // "vim.leader": "<space>",
   "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
+    // "<C-a>": false,
+    // "<C-f>": false,
+    "<C-w>": false
   },
 
   // To improve performance
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
-  }
+  },
+  "editor.wordWrap": "on",
+  // "workbench.sideBar.location": "right"
+  "workbench.panel.opensMaximized": "always",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+
+  // always maximise the terminal panel and put it on the right
+  "window.zoomLevel": 1,
+
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.panel.defaultLocation": "right",
+
+  // go
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": [
+  "--fast"
+],
+  //python
+"[python]": {
+  "editor.defaultFormatter": "ms-python.black-formatter"
+}
 }
