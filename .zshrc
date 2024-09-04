@@ -192,6 +192,7 @@ alias kcx=kubectx
 # alias koff="kubeoff"
 # koff # disable kube prompt
 export XDG_CONFIG_HOME="$HOME/.config"
+alias kl='kubectl logs -n '
 
 # terraform
 alias tfaa='terraform apply -auto-approve'
