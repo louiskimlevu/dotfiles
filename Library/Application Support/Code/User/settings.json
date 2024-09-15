@@ -47,7 +47,7 @@
   "terraform.experimentalFeatures.validateOnSave": true,
   "workbench.colorTheme": "Tokyo Night Storm",
   "editor.formatOnSave": true,
-  "files.autoSave": "afterDelay",
+  // "files.autoSave": "afterDelay",
 
   // cursor color
   "workbench.colorCustomizations": {
@@ -72,11 +72,14 @@
 
   // go
   "go.lintTool": "golangci-lint",
-  "go.lintFlags": [
-  "--fast"
-],
+  "go.lintFlags": ["--fast"],
   //python
-"[python]": {
-  "editor.defaultFormatter": "ms-python.black-formatter"
-}
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
 }

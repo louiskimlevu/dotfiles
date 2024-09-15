@@ -94,6 +94,10 @@ plugins=(
   helm
   zsh-autosuggestions
   zsh-syntax-highlighting
+
+  # zsh-autocomplete must downloaded before
+  # git clone --depth 1 -- https://github.com/marlonrichert/zsh-autocomplete.git $ZSH_CUSTOM/plugins/zsh-autocomplete
+  # zsh-autocomplete
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,6 +120,20 @@ config config --local status.showUntrackedFiles no
 defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2_preferences"
 # Tell iTerm2 to use the custom preferences in the directory
 defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
+
+# Text Colors
+# example use: echo -e "${ORANGE}Lab4: Add target labels${RESET_COLOR}"
+export RESET_COLOR='\033[0m'       # Reset color
+export BLACK='\033[0;30m'          # Black
+export RED='\033[0;31m'            # Red
+export GREEN='\033[0;32m'          # Green
+export YELLOW='\033[0;33m'         # Yellow
+export BLUE='\033[0;34m'           # Blue
+export MAGENTA='\033[0;35m'        # Magenta
+export CYAN='\033[0;36m'           # Cyan
+export WHITE='\033[0;37m'          # White
+export ORANGE='\033[38;5;208m'     # Orange (ANSI 256-color)
+
 
 # exa
 alias l='exa -l --all --classify --group-directories-first --color=auto --git --icons --no-time --no-user --no-permissions --no-filesize'
@@ -192,7 +210,11 @@ alias kcx=kubectx
 # alias koff="kubeoff"
 # koff # disable kube prompt
 export XDG_CONFIG_HOME="$HOME/.config"
-alias kl='kubectl logs -n '
+alias kl='kubectl logs -f -n '
+alias kafeof='cat << EOF | kubectl apply -f -'
+alias kdfeof='cat << EOF | kubectl delete -f -'
+alias kgpy='kubectl get po -oyaml -n '
+ alias kwgp='watch "kubectl get po -A | grep -v \"Completed\\|Running\""'
 
 # terraform
 alias tfaa='terraform apply -auto-approve'
@@ -205,6 +227,10 @@ eval "$(pyenv virtualenv-init -)"
 
 # lazygit
 alias lg='lazygit'
+
+
+# make targets completion
+
 
 # autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
