@@ -2138,26 +2138,17 @@
 		<key>0x66-0x40000-0x3</key>
 		<dict>
 			<key>Action</key>
-			<integer>38</integer>
-			<key>Label</key>
-			<string></string>
+			<integer>10</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
 			<key>Text</key>
-			<string>autojumpfzf\r</string>
+			<string>c</string>
 			<key>Version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
-		<key>0x67-0x40000-0x5</key>
-		<dict>
-			<key>Action</key>
-			<integer>38</integer>
-			<key>Label</key>
-			<string></string>
-			<key>Text</key>
-			<string>aliasfzf\r</string>
-			<key>Version</key>
-			<integer>1</integer>
-		</dict>
-		<key>0x77-0x40000-0xd</key>
+		<key>0x68-0x40000-0x4</key>
 		<dict>
 			<key>Action</key>
 			<integer>11</integer>
@@ -2166,7 +2157,33 @@
 			<key>Escaping</key>
 			<integer>2</integer>
 			<key>Text</key>
-			<string>1B 64</string>
+			<string>0x1b 0x5b 0x44</string>
+			<key>Version</key>
+			<integer>2</integer>
+		</dict>
+		<key>0x6b-0x40000-0x28</key>
+		<dict>
+			<key>Action</key>
+			<integer>12</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
+			<key>Text</key>
+			<string>kill -9 **\x09</string>
+			<key>Version</key>
+			<integer>2</integer>
+		</dict>
+		<key>0x6c-0x40000-0x25</key>
+		<dict>
+			<key>Action</key>
+			<integer>11</integer>
+			<key>Apply Mode</key>
+			<integer>0</integer>
+			<key>Escaping</key>
+			<integer>2</integer>
+			<key>Text</key>
+			<string>0x1b 0x5b 0x43</string>
 			<key>Version</key>
 			<integer>2</integer>
 		</dict>
@@ -3112,6 +3129,8 @@
 	<integer>1</integer>
 	<key>SwitchTabModifier</key>
 	<integer>9</integer>
+	<key>SwitchWindowModifier</key>
+	<integer>6</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>4</integer>
 	<key>TabViewType</key>

@@ -143,7 +143,7 @@ alias lt='exa --tree --color=auto --git-ignore --group-directories-first --sort=
 
 # bat
 # export BAT_THEME="gruvbox-dark"
-alias cat='bat --style=plain --paging=never' # clear
+# alias cat='bat --style=plain --paging=never' # clear
 
 # clear
 alias c='clear'
@@ -153,10 +153,10 @@ export TERM="xterm-256color"
 alias v="nvim"
 alias vim="nvim"
 export PATH="$HOME/.local/bin":$PATH
-export EDITOR="lvim"
-export GIT_EDITOR="lvim"
-export VISUAL="lvim"
-export KUBE_EDITOR=lvim
+export EDITOR="nvim"
+export GIT_EDITOR="nvim"
+export VISUAL="nvim"
+export KUBE_EDITOR=nvim
 
 # fzf
 export FZF_BASE=/opt/homebrew/opt/fzf
@@ -214,7 +214,7 @@ alias kl='kubectl logs -f -n '
 alias kafeof='cat << EOF | kubectl apply -f -'
 alias kdfeof='cat << EOF | kubectl delete -f -'
 alias kgpy='kubectl get po -oyaml -n '
- alias kwgp='watch "kubectl get po -A | grep -v \"Completed\\|Running\""'
+alias kwgp='watch "kubectl get po -A | grep -v \"Completed\\|Running\""'
 
 # terraform
 alias tfaa='terraform apply -auto-approve'
@@ -228,27 +228,9 @@ eval "$(pyenv virtualenv-init -)"
 # lazygit
 alias lg='lazygit'
 
-
-# make targets completion
-
-
 # autojump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-# keybind jj to <C-f>
-autojumpfzf () {
-  # search in recent directories 
-  dir=$(j -s | grep '/' | cut -d':' -f2 | awk '{$1=$1};1' | fzf)
-  cd $dir
-}
 
-# aliasfzf
-# keybind jj to <C-g>
-aliasfzf () {
-  selected_alias=$(alias | fzf)
-  command="${selected_alias#*=}"
-  echo "$command"
-  print -z $command
-}
 
 # delete nvim swap files
 # rm -rf ~/.local/state/nvim/swap
@@ -270,3 +252,36 @@ source <(plz --completion_script)
 
 # k9s
 alias k9s='k9s --logoless'
+
+# make target autocompletion
+# https://medium.com/@lavieenroux20/how-to-win-friends-influence-people-and-autocomplete-makefile-targets-e6cd228d856d
+_makefile_completions()
+{
+    if [ ! -e ./Makefile ]; then
+        return
+    fi
+    
+    # filter out flag arguments
+    filtered_comp_words=()
+    for comp_word in ${COMP_WORDS[@]}; do
+        if [[ $comp_word != -* ]]; then
+            filtered_comp_words+=("$comp_word")
+        fi
+    done
+    
+    # do nothing if a non-flag argument has already been added
+    if [[ "${#filtered_comp_words[@]}" -gt 2 ]]; then
+        return
+    fi
+    
+    word_list="$(grep '^[^\.][-a-zA-Z\.0-9_\/]*:' ./Makefile | sed 's/:.*//g' | uniq)"
+        COMPREPLY=($(compgen -W "${word_list}" "${filtered_comp_words[1]}"))
+    }
+    
+complete -o nospace -F _makefile_completions make
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/louiskim/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/louiskim/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/louiskim/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/louiskim/Downloads/google-cloud-sdk/completion.zsh.inc'; fi

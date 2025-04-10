@@ -1,13 +1,13 @@
 {
   // disable unknown word hints
   "cSpell.diagnosticLevel": "Hint",
-
   //use iterm terminal¡
   "terminal.external.osxExec": "iTerm.app",
   "terminal.explorerKind": "external",
   // git
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
+  "gitlens.blame.toggleMode": "file",
 
   // cloudformation
   "yaml.customTags": [
@@ -48,13 +48,11 @@
   "workbench.colorTheme": "Tokyo Night Storm",
   "editor.formatOnSave": true,
   // "files.autoSave": "afterDelay",
-
   // cursor color
   "workbench.colorCustomizations": {
     "editorCursor.foreground": "#f7768e", // light blue
     "terminalCursor.foreground": "#ffffff" // white
   },
-
   // To improve performance
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1
@@ -63,23 +61,51 @@
   // "workbench.sideBar.location": "right"
   "workbench.panel.opensMaximized": "always",
   "terminal.integrated.fontFamily": "MesloLGS NF",
-
   // always maximise the terminal panel and put it on the right
   "window.zoomLevel": 1,
-
   "go.toolsManagement.autoUpdate": true,
   "workbench.panel.defaultLocation": "right",
+  "diffEditor.hideUnchangedRegions.enabled": true,
 
-  // go
-  "go.lintTool": "golangci-lint",
-  "go.lintFlags": ["--fast"],
   //python
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "diffEditor.hideUnchangedRegions.enabled": true,
+
+  // go
+  "go.lintTool": "golangci-lint",
+  "go.lintFlags": ["--fast"],
+  "go.goroot": "/opt/homebrew/opt/go/libexec",
+  "go.gopath": "/Users/louiskim/go",
+  // "go.lint"
+  "go.lintOnSave": "off",
+  "go.vetOnSave": "off",
+
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "[go]": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "never"
+    }
+  },
+  "go.inlayHints.parameterNames": true,
+
+  //json
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
+  //kube
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path-mac": "/Users/louiskim/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+    "vscode-kubernetes.minikube-path-mac": "/Users/louiskim/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+  },
+
+  // "keyboard.dispatch": "keyCode"
+
+  "terminal.integrated.stickyScroll.enabled": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
